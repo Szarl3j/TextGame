@@ -1,3 +1,5 @@
+package Mount;
+
 public interface Horse {
     public void getonthehorse();
 

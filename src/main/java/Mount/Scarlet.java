@@ -1,3 +1,5 @@
+package Mount;
+
 public class Scarlet implements Horse {
     @Override
     public void getonthehorse() {
