@@ -12,7 +12,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         String name = scanner.nextLine();
 
-        Player player = new Player("szarlej");
+        Player player = new Player("szarlej",100,10);
         Location statLocation = new Location("Small room ", "You' re wake up in small dark room. " +
                 "Single bed standing next to the wall is only furniture  and some clothes laying on the floor. ");
         Location secondLocation = new Location("corridor", "...");
@@ -20,7 +20,7 @@ public class Main {
         statLocation.addExit(Direction.N, secondLocation);
         secondLocation.addExit(Direction.S, statLocation);
 
-        Npc orc = new Npc("Orc");
+        Npc orc = new Npc("Orc",150,5);
         statLocation.addNpc(orc);
 
         player.setCurrentLocation(statLocation);
