@@ -62,4 +62,22 @@ public class Location {
         return result;
 
     }
+
+    public boolean isThereNPC(String npcName) {
+        for (Npc npc : this.npcs) {
+            if (npc.getName().equalsIgnoreCase(npcName)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Npc getNpc(String npcName) {
+        for (Npc npc : this.npcs) {
+            if (npc.getName().equalsIgnoreCase(npcName)) {
+                return npc;
+            }
+        }
+        return null;
+    }
 }

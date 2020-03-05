@@ -1,6 +1,7 @@
 package player;
 
 
+import NPC.Npc;
 import location.Direction;
 import location.Location;
 
@@ -12,7 +13,7 @@ public class Player {
     private int strength;
 
 
-    public Player(String name, int health,int strength) {
+    public Player(String name, int health, int strength) {
         this.name = name;
         this.health = 100;
         this.strength = 6;
@@ -43,5 +44,21 @@ public class Player {
         } else {
             return false;
         }
+    }
+
+    public Npc isThereNPCNearby(String npcName) {
+        return this.currentLocation.getNpc(npcName);
+    }
+
+    public boolean isAllive() {
+        return health > 0;
+    }
+
+    public int getStrength() {
+        return strength;
+    }
+
+    public void damageTaken(int hit) {
+        this.health = this.health - hit;
     }
 }
