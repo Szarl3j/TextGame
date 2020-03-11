@@ -2,11 +2,9 @@ package location;
 
 
 import NPC.Npc;
+import com.google.common.base.Joiner;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Location {
     private String shortDescription;
@@ -25,7 +23,7 @@ public class Location {
     public String getDescription() {
 
         return this.shortDescription + "\n" + this.longDescription + "\n" + "Visible exits " + getExitString()
-                + "\n" + getNpcString();
+                + "\n" + Joiner.on(',').join(this.npcs);
     }
 
     public void addExit(Direction direction, Location location) {
@@ -43,10 +41,9 @@ public class Location {
 
     private String getExitString() {
         String exitsString = "";
-        for (Direction direction : exit.keySet()) {
-            exitsString += direction.getDirectionDescription() + " ";
-        }
-        return exitsString;
+        List<Direction>locationExits= new ArrayList<>(exit.keySet());
+        Collections.sort(locationExits);
+        return  Joiner.on(',').join(locationExits);
 
     }
 
@@ -54,14 +51,7 @@ public class Location {
         this.npcs.add(npc);
     }
 
-    private String getNpcString() {
-        String result = "";
-        for (Npc npc : this.npcs) {
-            result = result + npc.getName() + " ";
-        }
-        return result;
 
-    }
 
     public boolean isThereNPC(String npcName) {
         for (Npc npc : this.npcs) {

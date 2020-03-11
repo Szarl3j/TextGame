@@ -25,7 +25,7 @@ public class Player {
     }
 
     public Location getCurrentLocation() {
-        return currentLocation;
+        return this.currentLocation;
     }
 
     public void setCurrentLocation(Location location) {
@@ -46,7 +46,7 @@ public class Player {
         }
     }
 
-    public Npc isThereNPCNearby(String npcName) {
+    public Npc getNearbyNpc(String npcName) {
         return this.currentLocation.getNpc(npcName);
     }
 
@@ -60,5 +60,10 @@ public class Player {
 
     public void damageTaken(int hit) {
         this.health = this.health - hit;
+    }
+
+
+    public boolean isThereNpcNearby(Npc targetNpc) {
+        return this.currentLocation.isThereNPC(targetNpc.getName());
     }
 }

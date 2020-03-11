@@ -1,20 +1,18 @@
 package location;
 
 public enum Direction {
-N("North"),S("South"),E("East"),W("West"),
-    U("Up"),D("Down");
+    N("North"), S("South"), E("East"), W("West"),
+    U("Up"), D("Down");
 
     private String directionDescription;
 
-    public String getDirectionDescription() {
-        return directionDescription;
+    private Direction(String directionDescription) {
+        this.directionDescription = directionDescription;
     }
 
-    Direction(String directionDescription) {
-        this.directionDescription = directionDescription;
-
-
-
+    @Override
+    public String toString() {
+        return directionDescription;
     }
 }
 

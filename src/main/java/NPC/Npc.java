@@ -27,4 +27,8 @@ public class Npc {
     public void damageTaken(int hit) {
         this.health = this.health - hit;
     }
+    @Override
+    public String toString(){
+        return this.name;
+    }
 }
