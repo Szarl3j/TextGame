@@ -1,31 +1,33 @@
 package player;
 
-
+import Interface.Statistics;
 import NPC.Npc;
 import location.Direction;
 import location.Location;
-
 public class Player {
+
     private String name;
     private Location currentLocation;
 
-    private int health;
-    private int strength;
+    private Statistics stats;
 
+    public Player(String name) {
+        this.name = name;
+        this.stats = new Statistics(100,5,10);
+    }
 
     public Player(String name, int health, int strength) {
         this.name = name;
-        this.health = 100;
-        this.strength = 6;
+        this.stats = new Statistics(health,strength,10);
     }
 
+    public Player(String name, int health, int strength, int agility) {
+        this.name = name;
+        this.stats = new Statistics(health,strength,agility);
+    }
 
     public String getName() {
         return name;
-    }
-
-    public Location getCurrentLocation() {
-        return this.currentLocation;
     }
 
     public void setCurrentLocation(Location location) {
@@ -38,7 +40,7 @@ public class Player {
 
     public boolean move(Direction direction) {
         Location nextLocation = this.currentLocation.getNextLocation(direction);
-        if (nextLocation != null) {
+        if(nextLocation!=null) {
             this.currentLocation = nextLocation;
             return true;
         } else {
@@ -46,24 +48,31 @@ public class Player {
         }
     }
 
-    public Npc getNearbyNpc(String npcName) {
-        return this.currentLocation.getNpc(npcName);
+    public Npc getNearbyNpc(String NpcName) {
+        return this.currentLocation.getNpc(NpcName);
     }
 
-    public boolean isAllive() {
-        return health > 0;
+    public boolean isAlive() {
+        return stats.getHealth()>0;
     }
 
     public int getStrength() {
-        return strength;
+        return stats.getStrength();
     }
 
     public void damageTaken(int hit) {
-        this.health = this.health - hit;
+        this.stats.setHealth(this.stats.getHealth() - hit);
     }
 
+    public int getAgility() {
+        return this.stats.getAgility();
+    }
 
-    public boolean isThereNpcNearby(Npc targetNpc) {
+    public boolean isThereNPCNearby(Npc targetNpc) {
         return this.currentLocation.isThereNPC(targetNpc.getName());
     }
+
+
+
+
 }

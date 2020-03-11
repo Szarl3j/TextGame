@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 public class Main {
     public static void main(String[] args) {
         LocationRepository locationRepository= new LocationRepository();
+        CommandService cs = new CommandService();
 
         System.out.println(" What's your name? ");
         Scanner scanner = new Scanner(System.in);
@@ -29,7 +30,7 @@ public class Main {
         String command = "...";
         while (!command.equals("zakończ")) {
             command = readPlayerInput(scanner);
-            CommandService.actOnComand(command, player);
+            cs.actOnComand(command, player);
         }
         System.out.println("Do zobaczenia!");
     }

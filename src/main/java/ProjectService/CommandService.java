@@ -6,7 +6,7 @@ import location.Direction;
 import player.Player;
 
 public class CommandService {
-    public static void actOnComand(String command, Player player){
+    public void actOnComand(String command, Player player){
         command = command.toLowerCase();
         String[] splited = command.split(" ");
 
@@ -35,7 +35,7 @@ public class CommandService {
                 break;
         }
     }
-    private static void move(Direction direction, Player player) {
+    public void move(Direction direction, Player player) {
         boolean hasMoved = player.move(direction);
         if (hasMoved) {
             System.out.println(player.getCurrentLocationDescription());
@@ -45,7 +45,7 @@ public class CommandService {
 
     }
 
-    private static void attack(String target, Player player) {
+     public void attack(String target, Player player) {
         Npc targetNpc = player.getNearbyNpc(target);
         if (targetNpc != null) {
             beginCombat(player, targetNpc);
@@ -55,7 +55,7 @@ public class CommandService {
         }
     }
 
-    private static void beginCombat(Player player, Npc targetNpc) {
+    private void beginCombat(Player player, Npc targetNpc) {
         FightThread ft = new FightThread(player, targetNpc);
         Thread thread = new Thread(ft);
         thread.start();

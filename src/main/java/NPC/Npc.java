@@ -5,11 +5,13 @@ public class Npc {
 
     private int health;
     private int strength;
+    private int agility;
 
-    public Npc(String name, int health, int strength) {
+    public Npc(String name, int health, int strength,int agility) {
         this.name = name;
         this.health = 125;
         this.strength = 3;
+        this.agility=5;
     }
 
     public String getName() {
