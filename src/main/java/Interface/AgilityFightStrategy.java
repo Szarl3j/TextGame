@@ -1,9 +1,9 @@
 package Interface;
 
-import NPC.Npc;
+import Npc.Npc;
 import player.Player;
-
-import java.util.Random;ublic class AgilityFightStrategy implements FightStrategy {
+import java.util.Random;
+public class AgilityFightStrategy implements FightStrategy {
 
 
     @Override
@@ -11,7 +11,7 @@ import java.util.Random;ublic class AgilityFightStrategy implements FightStrateg
         int hit=0;
         while(player.isAlive() && targetNpc.isAlive()) {
 
-            boolean targetStillHere = player.isThereNpcNearby(targetNpc);
+            boolean targetStillHere = player.isThereNPCNearby(targetNpc);
 
             if(!targetStillHere) {
                 System.out.println("Your target is no longer here.");
@@ -72,7 +72,8 @@ import java.util.Random;ublic class AgilityFightStrategy implements FightStrateg
 
     private boolean calculateHitChance(Player player, Npc targetNpc) {
         int rand = new Random().nextInt(40);
-        return (player.getAgility()+rand)>targetNPC.getAgility();
+        return (player.getAgility()+rand)>targetNpc.getAgility();
     }
+
 
 }

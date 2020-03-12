@@ -1,11 +1,7 @@
 package Interface;
 
-import NPC.Npc;
+import Npc.Npc;
 import player.Player;
-
-import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class FightThread implements Runnable {
 

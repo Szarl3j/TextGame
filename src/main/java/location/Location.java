@@ -1,7 +1,7 @@
 package location;
 
 
-import NPC.Npc;
+import Npc.Npc;
 import com.google.common.base.Joiner;
 
 import java.util.*;

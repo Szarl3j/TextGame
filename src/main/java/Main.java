@@ -1,48 +1,39 @@
-import Interface.FightThread;
-import NPC.Npc;
 import ProjectService.CommandService;
 import Repository.LocationRepository;
-import location.Direction;
-import location.Location;
 import player.Player;
 
-import java.util.Random;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Main {
+
     public static void main(String[] args) {
-        LocationRepository locationRepository= new LocationRepository();
-        CommandService cs = new CommandService();
 
-        System.out.println(" What's your name? ");
+
+        LocationRepository locationRepository = new LocationRepository();
+        CommandService parser = new CommandService();
+
         Scanner scanner = new Scanner(System.in);
-        String name = scanner.nextLine();
+        System.out.println("What's your name?");
+        String playerName = scanner.nextLine();
 
-        Player player = new Player("szarlej", 100, 10);
+        Player player = new Player(playerName, 100, 10, 20);
 
-
-        player.setCurrentLocation(locationRepository.getStartLocation);
+        player.setCurrentLocation(locationRepository.getStartLocation());
 
         System.out.println(player.getCurrentLocationDescription());
 
-        String command = "...";
-        while (!command.equals("zakończ")) {
+        String command = "";
+        while(!command.equals("quit")) {
             command = readPlayerInput(scanner);
-            cs.actOnComand(command, player);
+            parser.actOnComand(command,player);
         }
-        System.out.println("Do zobaczenia!");
+
+        System.out.println("Goodbye!");
     }
 
     private static String readPlayerInput(Scanner scanner) {
-        System.out.println(">");
+        System.out.print(">");
         String command = scanner.nextLine();
         return command;
-
     }
-
-
-
-
-   }
+}

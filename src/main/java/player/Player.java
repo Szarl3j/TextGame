@@ -1,7 +1,7 @@
 package player;
 
 import Interface.Statistics;
-import NPC.Npc;
+import Npc.Npc;
 import location.Direction;
 import location.Location;
 public class Player {

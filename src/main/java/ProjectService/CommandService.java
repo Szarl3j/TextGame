@@ -1,7 +1,7 @@
 package ProjectService;
 
 import Interface.FightThread;
-import NPC.Npc;
+import Npc.Npc;
 import location.Direction;
 import player.Player;
 

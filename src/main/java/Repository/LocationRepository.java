@@ -1,6 +1,6 @@
 package Repository;
 
-import NPC.Npc;
+import Npc.Npc;
 import location.Direction;
 import location.Location;
 

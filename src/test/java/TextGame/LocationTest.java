@@ -1,6 +1,6 @@
 package TextGame;
 
-import NPC.Npc;
+import Npc.Npc;
 import location.Direction;
 import location.Location;
 import org.junit.Assert;
