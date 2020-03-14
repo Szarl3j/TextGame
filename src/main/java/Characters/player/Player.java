@@ -35,7 +35,7 @@ public class Player {
     }
 
     public String getCurrentLocationDescription() {
-         if ((this.currentLocation==null)){
+        if ((this.currentLocation==null)){
             System.out.checkError();
             return null;
         }

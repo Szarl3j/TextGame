@@ -20,7 +20,7 @@ public class LocationTest {
         mainLocation.addExit(Direction.N, northLocation);
         mainLocation.addExit(Direction.S, southLocation);
         Npc orc = new Npc("orc");
-        Npc secondOrk = new Npc("ork2");
+        Npc secondOrk = new Npc("orc2");
         mainLocation.addNpc(orc);
         mainLocation.addNpc(secondOrk);
     }
@@ -29,7 +29,7 @@ public class LocationTest {
     public void testDescription() {
 //Checking if description method works correctly.
         String description = mainLocation.getDescription();
-        String validDescription = "Short\nLong\nVisible exits: north, south\nork, ork2";
+        String validDescription = "Short\nLong\nVisible exits: North, South\norc, orc2";
         Assert.assertEquals("Compare descritpion", validDescription, description);
 
     }
