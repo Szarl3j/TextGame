@@ -57,7 +57,7 @@ public class Location {
         return false;
     }
 
-    public Npc getNPC(String npcName) {
+    public Npc getNpc(String npcName) {
         for(Npc npc : this.npcs) {
             if(npc.getName().equalsIgnoreCase(npcName)) {
                 return npc;

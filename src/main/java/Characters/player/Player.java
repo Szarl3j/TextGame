@@ -53,8 +53,8 @@ public class Player {
         }
     }
 
-    public Npc getNearbyNPC(String npcName) {
-        return this.currentLocation.getNPC(npcName);
+    public Npc getNearbyNpc(String npcName) {
+        return this.currentLocation.getNpc(npcName);
     }
 
     public boolean isAlive() {
