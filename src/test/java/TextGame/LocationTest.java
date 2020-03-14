@@ -49,7 +49,7 @@ public class LocationTest {
 //Checking if generate new npc works correctly
         Npc getOrc = mainLocation.getNpc("orc");
         Assert.assertEquals("Existing npc", "orc", getOrc.getName());
-        Npc getOrc2 = mainLocation.getNpc("ork4");
+        Npc getOrc2 = mainLocation.getNpc("orc4");
         Assert.assertNull("Non-existing npc", getOrc2);
     }
 

@@ -21,7 +21,7 @@ public class KillCommand implements Command{
 
         String result = "";
 
-        Npc targetNPC = player.getNearbyNPC(targetName);
+        Npc targetNPC = player.getNearbyNpc(targetName);
         if (targetNPC != null) {
             result = "You are charging " + targetName;
             beginCombat(player, targetNPC);
