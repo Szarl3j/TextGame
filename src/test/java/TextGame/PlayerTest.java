@@ -4,7 +4,7 @@ import location.Location;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import player.Player;
+import Characters.player.Player;
 
 public class PlayerTest {
 Location mainLocation;
@@ -21,7 +21,7 @@ Location northLocation;
         Player player = new Player("Szymon ",100,10);
         player.setCurrentLocation(mainLocation);
         player.move(Direction.N);
-        Assert.assertEquals("This same location", northLocation, player.getCurrentLocation());
+        Assert.assertEquals("This same location", northLocation, player.getCurrentLocationDescription());
     }
 
 }

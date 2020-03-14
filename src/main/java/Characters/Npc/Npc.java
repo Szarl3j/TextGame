@@ -1,4 +1,4 @@
-package Npc;
+package Characters.Npc;
 
 import Interface.Statistics;
 

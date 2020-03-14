@@ -3,8 +3,8 @@ package ProjectService;
 import Interface.AgilityFightStrategy;
 import Interface.FightStrategy;
 import Interface.FightThread;
-import Npc.Npc;
-import player.Player;
+import Characters.Npc.Npc;
+import Characters.player.Player;
 
 public class KillCommand implements Command{
 
@@ -21,10 +21,10 @@ public class KillCommand implements Command{
 
         String result = "";
 
-        Npc targetNpc = player.getNearbyNpc(targetName);
-        if (targetNpc != null) {
+        Npc targetNPC = player.getNearbyNPC(targetName);
+        if (targetNPC != null) {
             result = "You are charging " + targetName;
-            beginCombat(player, targetNpc);
+            beginCombat(player, targetNPC);
         } else {
             result = "There's no one like that around.";
         }
@@ -32,11 +32,11 @@ public class KillCommand implements Command{
         return result;
     }
 
-    void beginCombat(Player player, Npc targetNpc) {
+    void beginCombat(Player player, Npc targetNPC) {
 
         FightStrategy fs = new AgilityFightStrategy();
 
-        FightThread ft = new FightThread(player, targetNpc, fs);
+        FightThread ft = new FightThread(player, targetNPC, fs);
         Thread t = new Thread(ft);
 
         t.start();

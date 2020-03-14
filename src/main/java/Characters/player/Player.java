@@ -1,7 +1,7 @@
-package player;
+package Characters.player;
 
 import Interface.Statistics;
-import Npc.Npc;
+import Characters.Npc.Npc;
 import location.Direction;
 import location.Location;
 public class Player {
@@ -35,7 +35,12 @@ public class Player {
     }
 
     public String getCurrentLocationDescription() {
+         if ((this.currentLocation==null)){
+            System.out.checkError();
+            return null;
+        }
         return this.currentLocation.getDescription();
+
     }
 
     public boolean move(Direction direction) {
@@ -48,8 +53,8 @@ public class Player {
         }
     }
 
-    public Npc getNearbyNpc(String NpcName) {
-        return this.currentLocation.getNpc(NpcName);
+    public Npc getNearbyNPC(String npcName) {
+        return this.currentLocation.getNPC(npcName);
     }
 
     public boolean isAlive() {
@@ -68,8 +73,8 @@ public class Player {
         return this.stats.getAgility();
     }
 
-    public boolean isThereNPCNearby(Npc targetNpc) {
-        return this.currentLocation.isThereNPC(targetNpc.getName());
+    public boolean isThereNPCNearby(Npc targetNPC) {
+        return this.currentLocation.isThereNpc(targetNPC.getName());
     }
 
 

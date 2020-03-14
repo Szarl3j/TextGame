@@ -1,7 +1,7 @@
 package Interface;
 
-import Npc.Npc;
-import player.Player;
+import Characters.Npc.Npc;
+import Characters.player.Player;
 
 import java.util.Random;
 
@@ -15,7 +15,7 @@ public class ClasicFightStrategy implements  FightStrategy{
     @Override
     public void fight(Player player, Npc targetNpc) {
         int hit=0;
-        while(player.isAlive() && targetNpc.isAllive()) {
+        while(player.isAlive() && targetNpc.isAlive()) {
 
             boolean targetStillHere = player.isThereNPCNearby(targetNpc);
 
@@ -38,9 +38,9 @@ public class ClasicFightStrategy implements  FightStrategy{
             }
         }
 
-        if(player.isAlive() && !targetNpc.isAllive()) {
+        if(player.isAlive() && !targetNpc.isAlive()) {
             System.out.println("You are victorious!");
-        } else if((!player.isAlive() && targetNpc.isAllive())) {
+        } else if((!player.isAlive() && targetNpc.isAlive())) {
             System.out.println("Try harder next time");
         } else {
             System.out.println("Run away!");

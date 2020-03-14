@@ -1,6 +1,6 @@
 import ProjectService.CommandService;
 import Repository.LocationRepository;
-import player.Player;
+import Characters.player.Player;
 
 import java.util.Scanner;
 
@@ -22,10 +22,11 @@ public class Main {
 
         System.out.println(player.getCurrentLocationDescription());
 
+
         String command = "";
         while(!command.equals("quit")) {
             command = readPlayerInput(scanner);
-            parser.actOnComand(command,player);
+            parser.actOnCommand(command,player);
         }
 
         System.out.println("Goodbye!");

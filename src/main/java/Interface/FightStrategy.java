@@ -1,7 +1,7 @@
 package Interface;
 
-import Npc.Npc;
-import player.Player;
+import Characters.Npc.Npc;
+import Characters.player.Player;
 
 public interface FightStrategy {
 

@@ -1,6 +1,6 @@
 package TextGame;
 
-import Npc.Npc;
+import Characters.Npc.Npc;
 import location.Direction;
 import location.Location;
 import org.junit.Assert;
@@ -14,31 +14,31 @@ public class LocationTest {
 
     @Before
     public void initTest() {
-        mainLocation = new Location(" ", " ");
-        northLocation  = new Location("Second", "Long");
+        mainLocation = new Location("Short","Long");
+        northLocation = new Location("Second", "Long");
         Location southLocation = new Location("Third", "Long");
         mainLocation.addExit(Direction.N, northLocation);
         mainLocation.addExit(Direction.S, southLocation);
-        Npc Orc1 = new Npc("Orc", 150, 4);
-        mainLocation.addNpc(Orc1);
-        Npc Orc2 = new Npc("Orc2", 100, 10);
-        mainLocation.addNpc(Orc2);
+        Npc orc = new Npc("orc");
+        Npc secondOrk = new Npc("ork2");
+        mainLocation.addNpc(orc);
+        mainLocation.addNpc(secondOrk);
     }
 
     @Test
-    //Checking if program generate correctly description in location
-    public void testGetDescription() {
+    public void testDescription() {
+//Checking if description method works correctly.
         String description = mainLocation.getDescription();
-        String vaildDescription = "Short\nLong\nVisibleExits: north, south \n orc1, orc2 ";
-        Assert.assertEquals("Compare description", vaildDescription, description);
+        String validDescription = "Short\nLong\nVisible exits: north, south\nork, ork2";
+        Assert.assertEquals("Compare descritpion", validDescription, description);
+
     }
 
     @Test
     public void testGetNextLocation() {
-        //Checked if program correctly generate location or it's null location
-
+//Checking if move t next location works right.
         Location nextLoc = mainLocation.getNextLocation(Direction.N);
-        Assert.assertEquals("Same object", northLocation, nextLoc);
+        Assert.assertEquals("Same object",northLocation,nextLoc);
 
         Location nullLoc = mainLocation.getNextLocation(Direction.E);
         Assert.assertNull("Non-existing location", nullLoc);
@@ -46,11 +46,11 @@ public class LocationTest {
 
     @Test
     public void testGetNPC() {
-     //Checked if npc is in Location
-        Npc getOrc = mainLocation.getNpc("Orc");
-        Assert.assertEquals("Existing npc", "orc", getOrc.getName());
-        Npc getOrc2 = mainLocation.getNpc("orc4");
-        Assert.assertNull("Non-existing npc", getOrc2);
+//Checking if generate new npc works correctly
+        Npc getOrk = mainLocation.getNPC("ork");
+        Assert.assertEquals("Existing npc","ork",getOrk.getName());
+        Npc getOrk2 = mainLocation.getNPC("ork4");
+        Assert.assertNull("Non-existing npc",getOrk2);
     }
 
 }
