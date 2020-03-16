@@ -22,6 +22,8 @@ public class LocationRepository {
     }
 
     public Location getStartLocation() {
+        this.startLocation = new Location("Small room","You' re wake up in small dark room. \" +\n" +
+                " \"Single bed standing next to the wall is only furniture  and some clothes laying on the floor. ");
         return this.startLocation;
     }
 }
