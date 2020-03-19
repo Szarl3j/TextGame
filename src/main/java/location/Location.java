@@ -7,6 +7,7 @@ import com.google.common.base.Joiner;
 import java.util.*;
 
 public class Location {
+
     private String longDescription;
     private String shortDescription;
     private Map<Direction,Location> exit;

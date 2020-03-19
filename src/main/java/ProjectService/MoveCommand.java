@@ -8,7 +8,7 @@ public class MoveCommand implements Command {
     private Direction direction;
     private Player player;
 
-    MoveCommand(Direction direction, Player player) {
+    public MoveCommand(Direction direction, Player player) {
         this.direction = direction;
         this.player = player;
     }

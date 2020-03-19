@@ -11,7 +11,7 @@ public class KillCommand implements Command{
     private String targetName;
     private Player player;
 
-    KillCommand(String targetName, Player player) {
+    public KillCommand(String targetName, Player player) {
         this.targetName = targetName;
         this.player = player;
     }
@@ -21,22 +21,22 @@ public class KillCommand implements Command{
 
         String result = "";
 
-        Npc targetNPC = player.getNearbyNpc(targetName);
-        if (targetNPC != null) {
-            result = "You are charging " + targetName;
-            beginCombat(player, targetNPC);
+        Npc targetNpc = player.getNearbyNpc(targetName);
+        if (targetNpc != null) {
+            result = "You are attacking " + targetName;
+            beginCombat(player, targetNpc);
         } else {
-            result = "There's no one like that around.";
+            result = "There's no one of this kind.";
         }
 
         return result;
     }
 
-    void beginCombat(Player player, Npc targetNPC) {
+    public void beginCombat(Player player, Npc targetNpc) {
 
         FightStrategy fs = new AgilityFightStrategy();
 
-        FightThread ft = new FightThread(player, targetNPC, fs);
+        FightThread ft = new FightThread(player, targetNpc, fs);
         Thread t = new Thread(ft);
 
         t.start();

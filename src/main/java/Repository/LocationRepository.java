@@ -5,25 +5,28 @@ import location.Direction;
 import location.Location;
 
 public class LocationRepository {
-    private Location startLocation;
+    private Location startLoc;
 
     public LocationRepository() {
-        Location statLocation = new Location("Small room ", "You' re wake up in small dark room. " +
-                "Single bed standing next to the wall is only furniture  and some clothes laying on the floor. ");
-        Location secondLocation = new Location("corridor", "\"Corridor\",\"In dim, flickering" +
-                " lights you're not able to see much. Narrow space of the corridor is surrounded by steel walls.\");");
+        startLoc = new Location("Small room","You're in small, dark room. Single bed standing next to the wall is only furniture in here. " +
+                "Some clothes lying on floor. You put them on. " +
+                "You look around and see a vague figure at the other end of the room. You come closer and recognize the Orc. ");
+        Location secondLocation = new Location("Corridor","In dim, flickering lights you're not able to see much. Narrow space of the corridor is surrounded by steel walls. " +
+                "You try to keep going anyway ");
 
-        statLocation.addExit(Direction.N, secondLocation);
-        secondLocation.addExit(Direction.S, statLocation);
+        startLoc.addExit(Direction.N, secondLocation);
+        secondLocation.addExit(Direction.S,startLoc);
 
-        Npc orc = new Npc("Orc", 150, 5);
-        statLocation.addNpc(orc);
+        Npc orc = new Npc("Orc",50,5);
+
+        startLoc.addNpc(orc);
 
     }
 
     public Location getStartLocation() {
-        this.startLocation = new Location("Small room","You' re wake up in small dark room. \" +\n" +
-                " \"Single bed standing next to the wall is only furniture  and some clothes laying on the floor. ");
-        return this.startLocation;
+        return this.startLoc;
     }
+
+
+
 }

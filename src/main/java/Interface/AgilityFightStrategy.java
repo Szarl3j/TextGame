@@ -11,7 +11,7 @@ public class AgilityFightStrategy implements FightStrategy {
         int hit=0;
         while(player.isAlive() && targetNpc.isAlive()) {
 
-            boolean targetStillHere = player.isThereNPCNearby(targetNpc);
+            boolean targetStillHere = player.isThereNpcNearby(targetNpc);
 
             if(!targetStillHere) {
                 System.out.println("Your target is no longer here.");
@@ -24,7 +24,7 @@ public class AgilityFightStrategy implements FightStrategy {
                     showHitMessage(targetNpc,hit);
                     targetNpc.damageTaken(hit);
                 } else {
-                    System.out.println("Your hit misses " + targetNpc.getName());
+                    System.out.println("You missed by attacking " + targetNpc.getName());
                 }
 
                 Thread.sleep(2000);

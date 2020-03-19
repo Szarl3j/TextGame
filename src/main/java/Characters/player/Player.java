@@ -35,12 +35,7 @@ public class Player {
     }
 
     public String getCurrentLocationDescription() {
-        if ((this.currentLocation==null)){
-            System.out.checkError();
-            return "";
-        }
         return this.currentLocation.getDescription();
-
     }
 
     public boolean move(Direction direction) {
@@ -73,8 +68,8 @@ public class Player {
         return this.stats.getAgility();
     }
 
-    public boolean isThereNPCNearby(Npc targetNPC) {
-        return this.currentLocation.isThereNpc(targetNPC.getName());
+    public boolean isThereNpcNearby(Npc targetNpc) {
+        return this.currentLocation.isThereNpc(targetNpc.getName());
     }
 
 

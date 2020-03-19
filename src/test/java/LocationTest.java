@@ -1,5 +1,3 @@
-package TextGame;
-
 import Characters.Npc.Npc;
 import location.Direction;
 import location.Location;
@@ -27,7 +25,7 @@ public class LocationTest {
 
     @Test
     public void testDescription() {
-//Checking if description method works correctly.
+     //Checking if description method works correctly.
         String description = mainLocation.getDescription();
         String validDescription = "Short\nLong\nVisible exits: North, South\norc, orc2";
         Assert.assertEquals("Compare descritpion", validDescription, description);
@@ -36,7 +34,7 @@ public class LocationTest {
 
     @Test
     public void testGetNextLocation() {
-//Checking if move t next location works right.
+     //Checking if move t next location works right.
         Location nextLoc = mainLocation.getNextLocation(Direction.N);
         Assert.assertEquals("Same object", northLocation, nextLoc);
 
@@ -46,7 +44,7 @@ public class LocationTest {
 
     @Test
     public void testGetNpc() {
-//Checking if generate new npc works correctly
+     //Checking if generate new npc works correctly
         Npc getOrc = mainLocation.getNpc("orc");
         Assert.assertEquals("Existing npc", "orc", getOrc.getName());
         Npc getOrc2 = mainLocation.getNpc("orc4");

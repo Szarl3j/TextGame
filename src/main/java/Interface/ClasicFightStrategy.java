@@ -17,7 +17,7 @@ public class ClasicFightStrategy implements  FightStrategy{
         int hit=0;
         while(player.isAlive() && targetNpc.isAlive()) {
 
-            boolean targetStillHere = player.isThereNPCNearby(targetNpc);
+            boolean targetStillHere = player.isThereNpcNearby(targetNpc);
 
             if(!targetStillHere) {
                 System.out.println("Your target is no longer here.");
@@ -52,8 +52,8 @@ public class ClasicFightStrategy implements  FightStrategy{
         return strength + r.nextInt(4);
     }
 
-    private void showHitMessage(Npc targetNPC, int hit) {
-        System.out.println("You hit " + targetNPC.getName() + " for " + hit + " damage.");
+    private void showHitMessage(Npc targetNpc, int hit) {
+        System.out.println("You hit " + targetNpc.getName() + " for " + hit + " damage.");
     }
 
     private void showHitMessage(int hit) {
